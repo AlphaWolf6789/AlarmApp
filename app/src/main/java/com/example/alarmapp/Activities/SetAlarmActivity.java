@@ -48,6 +48,7 @@ public class SetAlarmActivity extends AppCompatActivity {
     private Calendar calendar;
     private Alarm alarm;
     MediaPlayer mediaPlayer;
+
     @SuppressLint("WrongViewCast")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -103,7 +104,7 @@ public class SetAlarmActivity extends AppCompatActivity {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                float volume = (float)(Math.log(100-i)/Math.log(100));
+                float volume = (float) (Math.log(100 - i) / Math.log(100));
                 mediaPlayer.setVolume(volume, volume);
                 mediaPlayer.start();
             }
@@ -151,15 +152,13 @@ public class SetAlarmActivity extends AppCompatActivity {
         boolean vibrate = is_Vibrate.isChecked();
 //        Toast.makeText(SetAlarmActivity.this, "volume "+ volume, Toast.LENGTH_SHORT).show();
         boolean recurring;
-        if(btn_Mon.isChecked()||btn_Tue.isChecked()||btn_Wed.isChecked()||btn_Thu.isChecked()
-                ||btn_Fri.isChecked()||btn_Sat.isChecked()||btn_Sun.isChecked())
-        {
+        if (btn_Mon.isChecked() || btn_Tue.isChecked() || btn_Wed.isChecked() || btn_Thu.isChecked()
+                || btn_Fri.isChecked() || btn_Sat.isChecked() || btn_Sun.isChecked()) {
             recurring = true;
-        }
-        else{
+        } else {
             recurring = false;
         }
-        Alarm alarm_result = new Alarm(alarm.getAlarmId(),getImageAlarm(), hour, minute, volume, true, recurring,
+        Alarm alarm_result = new Alarm(alarm.getAlarmId(), getImageAlarm(), hour, minute, volume, true, recurring,
                 vibrate, btn_Mon.isChecked(), btn_Tue.isChecked(), btn_Wed.isChecked(), btn_Thu.isChecked()
                 , btn_Fri.isChecked(), btn_Sat.isChecked(), btn_Sun.isChecked(), tag, note, ringTone, System.currentTimeMillis());
 
@@ -204,16 +203,15 @@ public class SetAlarmActivity extends AppCompatActivity {
                 txt_setAlarm.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
             }
         };
-        TimePickerDialog timePickerDialog = new TimePickerDialog(this,onTimeSetListener, hour, minute, true);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hour, minute, true);
         timePickerDialog.setTitle("Select Time");
         timePickerDialog.show();
     }
 
     private int getImageAlarm() {
-        if(hour >= 18|| (hour >=0 && hour<6)){
+        if (hour >= 18 || (hour >= 0 && hour < 6)) {
             return R.drawable.img_night;
-        }
-        else{
+        } else {
             return R.drawable.img_day;
         }
     }

@@ -9,10 +9,9 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.alarmapp.Adapter.ViewPagerAdapter;
-import com.example.alarmapp.AlarmFragment;
 import com.example.alarmapp.Fragment.AlarmFragment;
 import com.example.alarmapp.R;
-import com.example.alarmapp.ViewPagerAdapter;
+//import com.example.alarmapp.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
