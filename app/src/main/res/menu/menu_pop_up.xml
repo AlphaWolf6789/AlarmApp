@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    style = "@style/MyPopupMenu"
+    >
+    <item
+        android:id="@+id/menuItem_normalAlarm"
+        android:icon="@drawable/ic_add_alarm"
+        android:menuCategory="container"
+        android:title="Normal Alarm"
+        />
+    <item
+        android:id="@+id/menuItem_quickAlarm"
+        android:icon="@drawable/ic_quick_alarm"
+        android:title="Quick Alarm"
+        />
+</menu>

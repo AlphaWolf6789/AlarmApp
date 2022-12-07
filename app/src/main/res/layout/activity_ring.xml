@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background">
+
+    <TextView
+        android:id="@+id/time_Alert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="09:00"
+        android:textColor="@color/white"
+        android:textSize="100dp"
+        android:textAlignment="center"
+        android:layout_above="@id/text2"
+        android:layout_gravity="center_horizontal" />
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alarm"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        android:textAlignment="center"
+        android:layout_above="@id/btn_dismiss"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"/>
+    <com.ebanx.swipebtn.SwipeButton
+        android:id="@+id/btn_dismiss"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_centerVertical="true"
+        app:inner_text="Swipe to dismiss"
+        app:inner_text_color="@color/black"
+        app:inner_text_size="16dp"
+        app:inner_text_top_padding="10dp"
+        app:inner_text_bottom_padding="10dp"
+        app:inner_text_background="@drawable/rounded_swipe"
+        app:button_image_enabled="@drawable/ic_check"
+        app:button_image_disabled="@drawable/ic_alarm"
+        app:button_left_padding="15dp"
+        app:button_right_padding="15dp"
+        app:button_top_padding="15dp"
+        app:button_bottom_padding="15dp"
+        app:button_background="@drawable/rounded_swipe_button"
+        />
+
+</RelativeLayout>

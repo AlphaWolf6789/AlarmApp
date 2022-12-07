@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.AlarmFragment"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/main_background">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:backgroundTint="@color/button_disable_background"
+        app:cardCornerRadius="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp">
+
+            <TextView
+                android:id="@+id/txt_Schedules"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Schedules"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/txt_Bedtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BEDTIME"
+                android:textColor="@color/white"
+                android:layout_below="@id/txt_Schedules"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"/>
+            <TextView
+                android:id="@+id/txt_TimeBed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="23 : 30"
+                android:layout_below="@+id/txt_Bedtime"
+                android:textColor="@color/white"
+                android:textSize="35dp" />
+
+            <TextView
+                android:id="@+id/txt_WakeUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WAKE-UP"
+                android:textColor="@color/white"
+                android:layout_below="@id/txt_Schedules"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="25dp"/>
+            <TextView
+                android:id="@+id/txt_Time_WakeUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="06 : 00"
+                android:layout_below="@+id/txt_WakeUp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/white"
+                android:textSize="35dp" />
+
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/txt_Time_WakeUp"
+                />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:backgroundTint="@color/button_disable_background"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp">
+
+            <TextView
+                android:id="@+id/txt_SleepSound"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sleep sounds"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/txt_SoundName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Waves"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:layout_below="@id/txt_SleepSound"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="25dp"/>
+
+            <android.widget.Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_SoundName"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/color_yellow"
+                android:text="Choose another sound"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="17dp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
