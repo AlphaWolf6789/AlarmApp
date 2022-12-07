@@ -5,11 +5,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.example.alarmapp.Fragment.AlarmFragment;
-import com.example.alarmapp.Fragment.BedClockFragment;
-import com.example.alarmapp.Fragment.StopWatchFragment;
-import com.example.alarmapp.Fragment.TimerFragment;
-import com.example.alarmapp.Fragment.WorldClockFragment;
+import com.example.alarmapp.AlarmFragment;
+import com.example.alarmapp.BedClockFragment;
+import com.example.alarmapp.StopWatchFragment;
+import com.example.alarmapp.TimerFragment;
+import com.example.alarmapp.WorldClockFragment;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 

@@ -22,16 +22,16 @@
             android:name=".Activities.SetAlarmActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.SetTimeZoneActivity"
+            android:name=".SetTimeZoneActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
 
         </activity>
 
         <activity
-            android:name=".Activities.SplashActivity"
+            android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/ThemeSplash">
             <intent-filter>

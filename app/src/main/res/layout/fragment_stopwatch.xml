@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/main_background"
 
-    tools:context=".Fragment.AlarmFragment">
+    tools:context=".AlarmFragment">
 
     <TextView
         android:id="@+id/txt_stopwatch"
