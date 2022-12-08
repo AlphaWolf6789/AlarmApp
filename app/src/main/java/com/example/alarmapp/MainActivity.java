@@ -47,25 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(requestCode == 1000){
-//            if(resultCode == RESULT_OK){
-//                if (data.getExtras() != null) {
-//                    Alarm alarm = (Alarm) data.getExtras().get("alarm_object_main");
-//                    Toast.makeText(MainActivity.this, "Main clicked" + alarm.toString(), Toast.LENGTH_LONG).show();
-//                    Bundle bundle = new Bundle();
-//                    bundle.putSerializable("alarm_object_fr", alarm);
-//                    alarmFragment = new AlarmFragment();
-//                    alarmFragment.setArguments(bundle);
-//                    getSupportFragmentManager().beginTransaction().add(android.R.id.content, alarmFragment).addToBackStack(null).commit();
-////                    getSupportFragmentManager().beginTransaction().show(alarmFragment).addToBackStack(null).commit();
-//
-//                }
-//            }
-//        }
-//    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

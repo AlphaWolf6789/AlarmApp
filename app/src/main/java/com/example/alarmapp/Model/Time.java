@@ -6,9 +6,6 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 public class Time extends City {
-    TimeZone timeZone = TimeZone.getTimeZone("UTC");
-    Calendar calendar = Calendar.getInstance(timeZone);
-
 
     private String time;
 

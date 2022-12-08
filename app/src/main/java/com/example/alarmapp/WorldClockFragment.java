@@ -40,7 +40,6 @@ public class WorldClockFragment extends Fragment {
     public final int REQUEST_CODE = 1001, RESULT_CODE = 1000;
     SQLiteController sqLiteController;
 
-    // Them class City, Time vao Model, Them CityListViewAdapter, TimeZoneListViewAdapter
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
     @Override
