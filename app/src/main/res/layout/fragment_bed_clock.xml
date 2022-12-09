@@ -117,13 +117,13 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/txt_SoundName"
+                android:layout_marginTop="25dp"
                 android:backgroundTint="@color/color_yellow"
                 android:text="Choose another sound"
                 android:textAllCaps="false"
-                android:textSize="17dp"
                 android:textColor="@color/black"
-                android:layout_below="@id/txt_SoundName"
-                android:layout_marginTop="25dp"/>
+                android:textSize="17dp" />
 
         </RelativeLayout>
 

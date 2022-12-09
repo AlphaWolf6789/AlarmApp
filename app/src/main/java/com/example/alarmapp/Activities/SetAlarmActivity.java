@@ -1,13 +1,18 @@
 package com.example.alarmapp.Activities;
 
+import static android.media.AudioManager.STREAM_ALARM;
+import static android.media.AudioManager.STREAM_MUSIC;
+
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -41,6 +46,7 @@ public class SetAlarmActivity extends AppCompatActivity {
     private SeekBar alarm_Volume;
     private SwitchCompat is_Vibrate;
     private static final String TIME_FORMAT_24 = "HH:mm";
+    private String sHour, sMinute;
     private Button btn_Save, btn_Cancle;
     private ToggleButton btn_Mon, btn_Tue, btn_Wed, btn_Thu, btn_Fri, btn_Sat, btn_Sun;
     private AlarmManager alarmManager;
@@ -48,6 +54,7 @@ public class SetAlarmActivity extends AppCompatActivity {
     private Calendar calendar;
     private Alarm alarm;
     MediaPlayer mediaPlayer;
+    AudioManager audioManager;
 
     @SuppressLint("WrongViewCast")
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -66,7 +73,6 @@ public class SetAlarmActivity extends AppCompatActivity {
         btn_Save = findViewById(R.id.btn_Save);
         btn_Cancle = findViewById(R.id.btn_cancle);
         txt_setAlarm = findViewById(R.id.txt_setAlarm);
-        spn_AlarmTag = findViewById(R.id.spn_setAlarm);
         edt_AlarmNote = findViewById(R.id.edt_alarmNote);
         alarm_Volume = findViewById(R.id.seekbar);
         is_Vibrate = findViewById(R.id.is_Vibrate);
@@ -93,31 +99,26 @@ public class SetAlarmActivity extends AppCompatActivity {
                 finish();
             }
         });
-        Spinner spinner = findViewById(R.id.spn_setAlarm);
-        ArrayAdapter<CharSequence> adapter =
-                ArrayAdapter.createFromResource(this, R.array.alarm_types, R.layout.spinner_item);
-        adapter.setDropDownViewResource(R.layout.spinner_item);
-        spinner.setAdapter(adapter);
-        spinner.setSelection(0);
-        mediaPlayer = MediaPlayer.create(SetAlarmActivity.this, R.raw.wakemeup);
-        alarm_Volume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
+
+        mediaPlayer = MediaPlayer.create(SetAlarmActivity.this, R.raw.wakemeup);
+        audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+        alarm_Volume.setMax(audioManager.getStreamMaxVolume(STREAM_MUSIC));
+        alarm_Volume.setProgress(audioManager.getStreamVolume(STREAM_MUSIC));
+        alarm_Volume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                float volume = (float) (Math.log(100 - i) / Math.log(100));
-                mediaPlayer.setVolume(volume, volume);
-                mediaPlayer.start();
+                audioManager.setStreamVolume(STREAM_MUSIC, i, 0);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-//                mediaPlayer.stop();
                 mediaPlayer.start();
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                mediaPlayer.reset();
+                mediaPlayer.pause();
             }
         });
 
@@ -127,8 +128,8 @@ public class SetAlarmActivity extends AppCompatActivity {
     private void receiveData() {
         position = getIntent().getIntExtra("position", -1);
         alarm = (Alarm) getIntent().getExtras().get("alarm_object");
-        String sHour = String.format(Locale.getDefault(), "%02d", alarm.getHour());
-        String sMinute = String.format(Locale.getDefault(), "%02d", alarm.getMinute());
+        sHour = String.format(Locale.getDefault(), "%02d", alarm.getHour());
+        sMinute = String.format(Locale.getDefault(), "%02d", alarm.getMinute());
         String time = sHour + ":" + sMinute;
         txt_setAlarm.setText(time);
         img_Alarm.setImageResource(alarm.getAlarm_ImgID());
@@ -203,7 +204,7 @@ public class SetAlarmActivity extends AppCompatActivity {
                 txt_setAlarm.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
             }
         };
-        TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hour, minute, true);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, Integer.parseInt(sHour), Integer.parseInt(sMinute), true);
         timePickerDialog.setTitle("Select Time");
         timePickerDialog.show();
     }

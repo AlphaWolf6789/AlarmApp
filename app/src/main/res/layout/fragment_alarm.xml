@@ -19,12 +19,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/bottom_nav"
-        android:backgroundTint="@color/color_yellow"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
-        app:borderWidth="0dp"
-        android:src="@drawable/ic_plus" />
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/color_yellow"
+        android:src="@drawable/ic_plus"
+        app:borderWidth="0dp" />
 
 </RelativeLayout>

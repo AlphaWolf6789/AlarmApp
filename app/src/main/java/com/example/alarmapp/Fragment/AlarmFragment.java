@@ -24,6 +24,7 @@ import com.example.alarmapp.Adapter.AlarmAdapter;
 import com.example.alarmapp.Data.AlarmDatabase;
 import com.example.alarmapp.Interface.IClickListener;
 import com.example.alarmapp.Model.Alarm;
+import com.example.alarmapp.Model.TimePickerUtil;
 import com.example.alarmapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -69,6 +70,9 @@ public class AlarmFragment extends Fragment implements IClickListener {
         recyclerView.setAdapter(adapter);
         adapter.setClickListener(this);
 
+
+
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         if (AlarmDatabase.getInstance(getContext()).alarmDao().getListAlarms() != null) {
@@ -77,7 +81,7 @@ public class AlarmFragment extends Fragment implements IClickListener {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                popUpTimePicker(view);
+                popUpTimePickerNew(view);
             }
 
         });
@@ -90,7 +94,37 @@ public class AlarmFragment extends Fragment implements IClickListener {
         adapter.setData(getListAlarm());
     }
 
-    private void popUpTimePicker(View view) {
+//    private void popUpTimePickerOld(View view) {
+//        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+//            @Override
+//            public void onTimeSet(TimePicker timePicker, int Selectedhour, int Selectedminute) {
+//                int alarmId = new Random().nextInt(Integer.MAX_VALUE);
+//
+//                hour = Selectedhour;
+//                minute = Selectedminute;
+//
+//                Alarm alarm = new Alarm(alarmId, setImageAlarm(hour), hour, minute, 80, true, false,
+//                        true, false, false, false, false,
+//                        false, false, false, "", "", "", System.currentTimeMillis());
+//
+//                alarm.schedule(getContext());
+//
+//                AlarmDatabase.getInstance(getContext()).alarmDao().insert(alarm);
+//                Toast.makeText(getContext(), "Add alarm successfully!", Toast.LENGTH_SHORT).show();
+//                list = AlarmDatabase.getInstance(getContext()).alarmDao().getListAlarms();
+//                try {
+//                    adapter.setData(getListAlarm());
+//                } catch (NullPointerException e) {
+//
+//                }
+//            }
+//        };
+//        TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), onTimeSetListener, hour, minute, true);
+//        timePickerDialog.setTitle("Change Time");
+//        timePickerDialog.show();
+//    }
+
+    private void popUpTimePickerNew(View view) {
         TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int Selectedhour, int Selectedminute) {
@@ -115,7 +149,11 @@ public class AlarmFragment extends Fragment implements IClickListener {
                 }
             }
         };
-        TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), onTimeSetListener, hour, minute, true);
+        calendar = Calendar.getInstance();
+        newSetHour = calendar.get(Calendar.HOUR_OF_DAY);
+        newSetMinute = calendar.get(Calendar.MINUTE);
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), onTimeSetListener, newSetHour, newSetMinute, true);
         timePickerDialog.setTitle("Select Time");
         timePickerDialog.show();
     }
