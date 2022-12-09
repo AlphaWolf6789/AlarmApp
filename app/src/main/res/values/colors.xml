@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="color_bottom_nav">#34344A</color>
     <color name="color_yellow">#F0F757</color>
+    <color name="color_yellow2">#B4B86F</color>
     <color name="main_background">#1D1D23</color>
     <color name="button_disable_background">#3C3C49</color>
     <color name="transparent_background">#6F000000</color>

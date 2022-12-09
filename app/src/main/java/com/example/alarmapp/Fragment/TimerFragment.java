@@ -1,4 +1,4 @@
-package com.example.alarmapp;
+package com.example.alarmapp.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,12 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class StopWatchFragment extends Fragment {
+import com.example.alarmapp.R;
+
+public class TimerFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_stopwatch, container, false);
+        View view = inflater.inflate(R.layout.fragment_timer, container, false);
         return view;
     }
 }

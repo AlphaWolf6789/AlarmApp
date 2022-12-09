@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_click"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -17,11 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="170dp"
             android:contentDescription="@string/time_setAlarmActivity"
-            app:cardCornerRadius="15dp"
+            android:foreground="@drawable/image_overlay"
             android:scaleType="centerCrop"
             android:src="@drawable/img_day"
-            android:foreground="@drawable/image_overlay"
-            />
+            app:cardCornerRadius="15dp" />
         <TextView
             android:id="@+id/txt_alarmTags_Fragment"
             android:layout_width="wrap_content"
@@ -32,15 +32,34 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"/>
 
+        <android.widget.Button
+            android:id="@+id/btn_DeleteAlarm"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:drawableRight="@drawable/ic_close" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchBtn_Fragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/seekbar"
+            android:layout_below="@id/btn_DeleteAlarm"
             android:layout_alignParentRight="true"
-            app:trackTint="@drawable/switch_track"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
             app:thumbTint="#DCDBDB"
-            android:layout_marginRight="15dp"/>
+            app:trackTint="@drawable/switch_track" />
 
         <TextView
             android:id="@+id/txt_TimeAlarm_Fragment"
@@ -53,94 +72,108 @@
             android:textSize="40dp"
             android:layout_marginLeft="20dp"/>
 
-        <android.widget.Button
+        <ToggleButton
             android:id="@+id/btn_Mon_Fragment"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_below="@id/txt_TimeAlarm_Fragment"
             android:layout_marginLeft="17dp"
-            android:background="@drawable/round_button"
-            android:text="Mo"
+            android:background="@drawable/toggle_button_default"
+            android:textOn="Mo"
+            android:textOff="Mo"
+            android:clickable="false"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@drawable/text_color_clicked"
             android:textSize="13dp"
             android:textStyle="bold" />
 
-        <android.widget.Button
+        <ToggleButton
             android:id="@+id/btn_Tue_Fragment"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:text="Tu"
+            android:textOn="Tu"
+            android:textOff="Tu"
+            android:clickable="false"
             android:textSize="13dp"
-            android:textColor="@color/white"
+            android:textColor="@drawable/text_color_clicked"
             android:textStyle="bold"
             android:textAllCaps="false"
-            android:background="@drawable/round_button"
+            android:background="@drawable/toggle_button_default"
             android:layout_below="@id/txt_TimeAlarm_Fragment"
             android:layout_toRightOf="@id/btn_Mon_Fragment"
             android:layout_marginLeft="10dp"/>
-        <android.widget.Button
+        <ToggleButton
             android:id="@+id/btn_Wed_Fragment"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:text="We"
+            android:textOff="We"
+            android:textOn="We"
+            android:clickable="false"
             android:textSize="13dp"
-            android:textColor="@color/white"
+            android:textColor="@drawable/text_color_clicked"
             android:textStyle="bold"
             android:textAllCaps="false"
-            android:background="@drawable/round_button"
+            android:background="@drawable/toggle_button_default"
             android:layout_below="@id/txt_TimeAlarm_Fragment"
             android:layout_toRightOf="@id/btn_Tue_Fragment"
             android:layout_marginLeft="10dp"/>
-        <android.widget.Button
+        <ToggleButton
             android:id="@+id/btn_Thu_Fragment"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:text="Th"
+            android:textOff="Th"
+            android:textOn="Th"
+            android:clickable="false"
             android:textSize="13dp"
-            android:textColor="@color/white"
+            android:textColor="@drawable/text_color_clicked"
             android:textStyle="bold"
             android:textAllCaps="false"
-            android:background="@drawable/round_button"
+            android:background="@drawable/toggle_button_default"
             android:layout_below="@id/txt_TimeAlarm_Fragment"
             android:layout_toRightOf="@id/btn_Wed_Fragment"
             android:layout_marginLeft="10dp"/>
-        <android.widget.Button
+        <ToggleButton
             android:id="@+id/btn_Fri_Fragment"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:text="Fr"
+            android:textOff="Fr"
+            android:textOn="Fr"
+            android:clickable="false"
             android:textSize="13dp"
-            android:textColor="@color/white"
+            android:textColor="@drawable/text_color_clicked"
             android:textStyle="bold"
             android:textAllCaps="false"
-            android:background="@drawable/round_button"
+            android:background="@drawable/toggle_button_default"
             android:layout_below="@id/txt_TimeAlarm_Fragment"
             android:layout_toRightOf="@id/btn_Thu_Fragment"
             android:layout_marginLeft="10dp"/>
-        <android.widget.Button
+        <ToggleButton
             android:id="@+id/btn_Sat_Fragment"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:text="Sa"
+            android:textOn="Sa"
+            android:textOff="Sa"
+            android:clickable="false"
             android:textSize="13dp"
-            android:textColor="@color/white"
+            android:textColor="@drawable/text_color_clicked"
             android:textStyle="bold"
             android:textAllCaps="false"
-            android:background="@drawable/round_button"
+            android:background="@drawable/toggle_button_default"
             android:layout_below="@id/txt_TimeAlarm_Fragment"
             android:layout_toRightOf="@id/btn_Fri_Fragment"
             android:layout_marginLeft="10dp"/>
-        <android.widget.Button
+        <ToggleButton
             android:id="@+id/btn_Sun_Fragment"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:text="Su"
+            android:textOff="Su"
+            android:textOn="Su"
+            android:clickable="false"
             android:textSize="13dp"
-            android:textColor="@color/white"
+            android:textColor="@drawable/text_color_clicked"
             android:textStyle="bold"
             android:textAllCaps="false"
-            android:background="@drawable/round_button"
+            android:background="@drawable/toggle_button_default"
             android:layout_below="@id/txt_TimeAlarm_Fragment"
             android:layout_toRightOf="@id/btn_Sat_Fragment"
             android:layout_marginLeft="10dp"/>
